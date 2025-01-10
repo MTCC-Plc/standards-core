@@ -15,7 +15,7 @@ Unlike a regular install from the npm registry, this package will be fetched fro
 In order to pin to a specific version, the hash of the commit should be passed at the end of the url. If unsure which commit to use, pick the latest one. For example:
 
 ```sh
-npm i https://github.com/MTCC-Plc/standards-core#cb32233
+npm i https://github.com/MTCC-Plc/standards-core#133d0a7
 ```
 
 Either the short or long hash are fine.

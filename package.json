@@ -2,7 +2,7 @@
   "name": "standards-core",
   "version": "1.0.0",
   "description": "Common standards used within MTCC. Contains core functions without external dependencies.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"
