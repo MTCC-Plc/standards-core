@@ -14,7 +14,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isLevelGradeOrAbove = exports.isGradeOrAbove = exports.isLevelOrAbove = exports.timeDurationHumanReadable = exports.COUNTRIES = exports.DT_FORMATS = void 0;
+exports.COUNTRIES = exports.DT_FORMATS = void 0;
+exports.timeDurationHumanReadable = timeDurationHumanReadable;
+exports.isLevelOrAbove = isLevelOrAbove;
+exports.isGradeOrAbove = isGradeOrAbove;
+exports.isLevelGradeOrAbove = isLevelGradeOrAbove;
 __exportStar(require("."), exports);
 const helpers_1 = require("./helpers");
 exports.DT_FORMATS = {
@@ -300,7 +304,6 @@ function timeDurationHumanReadable({ minutes, hours, seconds, }) {
     minutesRounded = Math.floor(min - hoursRounded * 60);
     return `${hoursRounded.toLocaleString()}h${minutesRounded > 0 ? ` ${minutesRounded}m` : ""}`;
 }
-exports.timeDurationHumanReadable = timeDurationHumanReadable;
 /**
  *
  * @returns {[boolean, number]} the first element signifies whether the
@@ -318,7 +321,6 @@ function isLevelOrAbove(userLevelGrade, checkLevel) {
         return [true, matchInt];
     return [false, matchInt];
 }
-exports.isLevelOrAbove = isLevelOrAbove;
 /**
  *
  * @returns {[boolean, number]} the first element signifies whether the
@@ -336,7 +338,6 @@ function isGradeOrAbove(userLevelGrade, checkGrade) {
         return [true, matchInt];
     return [false, matchInt];
 }
-exports.isGradeOrAbove = isGradeOrAbove;
 function isLevelGradeOrAbove(userLevelGrade, checkLevel, checkGrade) {
     const [_, level] = isLevelOrAbove(userLevelGrade, checkLevel);
     // if level is greater than the check level, grade does not need to be checked
@@ -351,4 +352,3 @@ function isLevelGradeOrAbove(userLevelGrade, checkLevel, checkGrade) {
         return gradeIsOrAbove;
     }
 }
-exports.isLevelGradeOrAbove = isLevelGradeOrAbove;

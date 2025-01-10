@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isNotNullOrUndefinedAndValidNumber = void 0;
+exports.isNotNullOrUndefinedAndValidNumber = isNotNullOrUndefinedAndValidNumber;
 /**
  * Checks if the value passed in is not null or undefined.
  * Also checks if the type is number.
@@ -12,4 +12,3 @@ function isNotNullOrUndefinedAndValidNumber(value) {
         return false;
     return true;
 }
-exports.isNotNullOrUndefinedAndValidNumber = isNotNullOrUndefinedAndValidNumber;
