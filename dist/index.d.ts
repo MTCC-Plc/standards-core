@@ -32,3 +32,9 @@ export declare function isLevelOrAbove(userLevelGrade: string, checkLevel: numbe
  */
 export declare function isGradeOrAbove(userLevelGrade: string, checkGrade: number): [boolean, number];
 export declare function isLevelGradeOrAbove(userLevelGrade: string, checkLevel: number, checkGrade: number): boolean;
+export declare const Banks: {
+    code: string;
+    name: string;
+    validator: (accountNumber: string) => boolean;
+    formatter: (input: string) => string;
+}[];

@@ -352,3 +352,56 @@ export function isLevelGradeOrAbove(
     return gradeIsOrAbove;
   }
 }
+
+export const Banks = [
+  {
+    code: "BML",
+    name: "Bank of Maldives",
+    validator: (accountNumber: string): boolean => accountNumber.length === 15,
+    formatter: (input: string): string => {
+      let output = input.replace(/\D/g, "");
+      if (output.length >= 13) {
+        output =
+          output.substring(0, 4) +
+          "-" +
+          output.substring(4, 10) +
+          "-" +
+          output.substring(10, 13);
+      } else if (output.length >= 11) {
+        output =
+          output.substring(0, 4) +
+          "-" +
+          output.substring(4, 10) +
+          "-" +
+          output.substring(10);
+      } else if (output.length >= 5) {
+        output = output.substring(0, 4) + "-" + output.substring(4);
+      }
+      return output;
+    },
+  },
+  {
+    code: "MIB",
+    name: "Maldives Islamic Bank",
+    validator: (accountNumber: string): boolean => accountNumber.length === 17,
+    formatter: (input: string): string => input.substring(0, 17),
+  },
+  {
+    code: "SBI",
+    name: "State Bank of India",
+    validator: (accountNumber: string): boolean => accountNumber.length === 14,
+    formatter: (input: string): string => input.substring(0, 14),
+  },
+  {
+    code: "CBM",
+    name: "Commercial Bank of Maldives",
+    validator: (accountNumber: string): boolean => accountNumber.length === 10,
+    formatter: (input: string): string => input.substring(0, 10),
+  },
+  {
+    code: "BOC",
+    name: "Bank of Ceylon",
+    validator: (accountNumber: string): boolean => accountNumber.length === 10,
+    formatter: (input: string): string => input.substring(0, 10),
+  },
+];

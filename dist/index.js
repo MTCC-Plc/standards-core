@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.COUNTRIES = exports.DT_FORMATS = void 0;
+exports.Banks = exports.COUNTRIES = exports.DT_FORMATS = void 0;
 exports.timeDurationHumanReadable = timeDurationHumanReadable;
 exports.isLevelOrAbove = isLevelOrAbove;
 exports.isGradeOrAbove = isGradeOrAbove;
@@ -352,3 +352,57 @@ function isLevelGradeOrAbove(userLevelGrade, checkLevel, checkGrade) {
         return gradeIsOrAbove;
     }
 }
+exports.Banks = [
+    {
+        code: "BML",
+        name: "Bank of Maldives",
+        validator: (accountNumber) => accountNumber.length === 15,
+        formatter: (input) => {
+            let output = input.replace(/\D/g, "");
+            if (output.length >= 13) {
+                output =
+                    output.substring(0, 4) +
+                        "-" +
+                        output.substring(4, 10) +
+                        "-" +
+                        output.substring(10, 13);
+            }
+            else if (output.length >= 11) {
+                output =
+                    output.substring(0, 4) +
+                        "-" +
+                        output.substring(4, 10) +
+                        "-" +
+                        output.substring(10);
+            }
+            else if (output.length >= 5) {
+                output = output.substring(0, 4) + "-" + output.substring(4);
+            }
+            return output;
+        },
+    },
+    {
+        code: "MIB",
+        name: "Maldives Islamic Bank",
+        validator: (accountNumber) => accountNumber.length === 17,
+        formatter: (input) => input.substring(0, 17),
+    },
+    {
+        code: "SBI",
+        name: "State Bank of India",
+        validator: (accountNumber) => accountNumber.length === 14,
+        formatter: (input) => input.substring(0, 14),
+    },
+    {
+        code: "CBM",
+        name: "Commercial Bank of Maldives",
+        validator: (accountNumber) => accountNumber.length === 10,
+        formatter: (input) => input.substring(0, 10),
+    },
+    {
+        code: "BOC",
+        name: "Bank of Ceylon",
+        validator: (accountNumber) => accountNumber.length === 10,
+        formatter: (input) => input.substring(0, 10),
+    },
+];
